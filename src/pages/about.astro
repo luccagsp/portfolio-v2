@@ -32,7 +32,7 @@ const positionVariants = {
         <BookCard/>
         <div class="divider"></div>
         <div class="titleContainer w-full my-28 border-y-[2px] flex justify-center items-center">
-          <h1 class="text-6xl font-[Aclonica] text-[#333] border-x-[2px] text-center inline-block relative p-2 px-5">
+          <h1 class="text-5xl sm:text-6xl font-[Aclonica] text-[#333] border-x-[2px] text-center inline-block relative p-2 px-5">
             <Cross variant={`${positionVariants["leftTop"]}`} />
             <Cross variant={`${positionVariants["rightBottom"]}`} />
             About
@@ -71,14 +71,14 @@ const positionVariants = {
 
             </div>
           </section>
-          <section class="historyContainer grid grid-cols-2 md:px-32 xl:px-60 my-20 border-t-[2px] pt-8">
-            <article class="info lg:ml-14 h-full">
+          <section class="historyContainer grid grid-cols-1 sm:grid-cols-2 md:px-32 xl:px-60 my-20 border-t-[2px] pt-8">
+            <article class="info lg:ml-14 h-full m-5">
               <h3 class="cursor-default text-4xl mb-5 md:text-6xl flex items-center all hover:scale-105 transition relative"><span class=""><img class="h-[1.4em] w-[1.4em] grayscale-[100%]" src="/icons/python.svg" alt="python-icon"></span>Python</h3>
               <p class="carddesc md:text-[1.4rem] w-full px-5">I’ve programmed in Python for 3 years.
                 Developed some projects using Tkinter and OpenCV.
               </p>
             </article>
-            <article class="info lg:ml-14 h-full">
+            <article class="info lg:ml-14 h-full m-5">
               <h3 class="cursor-default text-4xl mb-5 md:text-6xl flex items-center all hover:scale-105 transition relative"><span class=""><img class="h-[1.5em] w-[1.5em] grayscale-[100%]" src="/icons/html.svg" alt="python-icon"></span>Web</h3>
               <p class="carddesc md:text-[1.4rem] w-full px-5">Started in front-end 7 months ago and taking steps to become fullstack developer</p>
             </article>
@@ -111,10 +111,6 @@ const positionVariants = {
 	}
   header{
     backdrop-filter: blur(12px);
-  }
-
-  main{
-    
   }
 </style>
 
