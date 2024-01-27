@@ -1,0 +1,88 @@
+---
+import Info from "../layouts/Info.astro"
+import image from '/fronts/image.svg'
+
+import Click from "../components/Click.svelte"
+import Display from "../components/Display.svelte"
+
+import VideoCard from "../components/VideoCard.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import Cross from '../components/Cross.astro';
+
+const positionVariants = {
+  "leftTop": "left-[-11px] top-[-11px]",
+  "rightBottom": "right-[-11px] bottom-[-11px]",
+  "leftBottom": "left-[-11px] bottom-[-11px]"
+}
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Proyects</title>
+	</head>
+	<body>
+		<div class="noise">
+		</div>
+    <Header next="/about"/>
+    <div class="h-full bg-none border-b-[2px]">
+      <main class="border-x-[2px] container mx-auto flex justify-start h-full items-center flex-col bg-none">
+        <div class="h-[153px] mt-20">
+          <img id="head" src="/fronts/image.svg" class="max-w-24 z-20" alt="">
+        </div>
+        <div class="titleContainer w-full my-28 border-y-[2px] flex justify-center items-center">
+
+					<h1 class="text-6xl font-[Aclonica] text-[#333] border-x-[2px] text-center inline-block relative p-2 px-5">
+						<Cross variant={`${positionVariants["leftTop"]}`} />
+						<Cross variant={`${positionVariants["rightBottom"]}`} />
+						Proyects
+					</h1>
+				</div>
+        <div class="cont w-full relative">
+          <Cross variant={`${positionVariants["rightBottom"]}`} />
+          <Cross variant={`${positionVariants["leftBottom"]}`} />
+          <section class="proyects grid md:grid-cols-2 mx-5 mb-10 border-x-[2px] h-full">
+            <VideoCard href="https://github.com/luccagsp/Library-management-system.git" source="library.mp4" stack={["python", "mysql"]} p="Library simulation system with full CRUD and login system." h3="Library management system"/>
+            <VideoCard href="https://lccwater-calculator.vercel.app/" source="waterCalc.mp4" stack={["astro", "react", "javascript"]} p="Calculate your daily water consume" h3="Water calc"/>
+          </section>
+        </div>
+      </main>
+    </div>
+		<Footer/>
+	</body>
+</html>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+	:root{
+		--proyects: #FF8B36;
+		--text: #
+	}
+	body{
+		font-family: 'Montserrat', sans-serif;
+		color: #333333;
+	}
+	.noise{
+		position: fixed;
+		height: 100vh;
+		z-index: 1000;
+		width: 100%;
+		opacity: 0.05;
+		pointer-events: none;
+		background-image: url('/noise.gif');
+	}
+  #head{
+    filter: grayscale(100%);
+  }
+  header{
+    backdrop-filter: blur(12px);
+  }
+</style>
+

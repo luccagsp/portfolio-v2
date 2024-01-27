@@ -1,0 +1,109 @@
+---
+interface Props {
+	title: string;
+
+}
+
+const { title } = Astro.props;
+
+import Click from '../components/Click.svelte';
+import {Display} from '../components/Display.jsx';
+import Header from '../components/Header.astro';
+import {ClickReact} from "../components/clickReact/Click"
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<div class="noise">
+		</div>
+    <Header next={"/"}/>
+    <div class="mx-auto h-full">
+      <main class="h-full">
+        <div class="container flex-col mx-auto items-center flex justify-start h-full">
+          
+          <h1 class="mt-20 text-5xl font-[600] font-[Aclonica] -z-10">Software stack</h1>
+          <div class="h-[60vh] w-[30rem] flex justify-center items-center flex-col ">
+            
+            <div id="display" class="flex flex-row justify-center align-center w-full ">
+              <Display client:load/>
+            </div>
+          </div>
+        </div>
+      </main>
+      <div class="relative"></div>
+        <nav id="nav" class="w-screen  h-32 md:h-14 border-t-2 border-b-2 border-[#3A3A3A] flex justify-center items-center">
+          <ul class="flex flex-col sm:flex-row justify-center items-center h-full ">
+            <div class="left flex flex-row h-full w-full">
+              <ClickReact client:load content={"Languages"} stack={["mysql", "python", "javascript"]}/>
+              <ClickReact client:load content={"Frameworks"} stack={["astro", "react", "svelte", "angular"]}/>
+            </div>
+            <div class="right flex flex-row h-full w-full ">
+              <ClickReact client:load content={"Technologies"}stack={["git", "docker", "figma", "inkscape", "blender"]}/>
+              <ClickReact client:load content={"Html&Css"} stack={["html", "css", "tailwind", "bootstrap"]}/>
+            </div>
+            
+          </ul>
+        </nav>
+        <div id="menu-backdrop" class=`hidden sm:block absolute border-[#3A3A3A] bg-[#D9D9D9]
+        left-[var(--left)] top-[var(--top)]
+        w-[var(--width)]
+        h-[var(--height)]
+        transition-all duration-300 ease-in-out
+        opacity-0 -z-10 border-l-2 border-r-2 `></div>
+      
+    </div>
+		
+	</body>
+</html>
+
+<script>
+  const listItem = document.querySelectorAll("#itemli")
+  const menuBackdrop = document.querySelector("#menu-backdrop") as HTMLElement
+
+  listItem.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      const {left, top, width, height} = item.getBoundingClientRect()
+      menuBackdrop.style.setProperty("--left", `${left}px`)
+      menuBackdrop.style.setProperty("--top", `${top}px`)
+      menuBackdrop.style.setProperty("--width", `${width}px`)
+      menuBackdrop.style.setProperty("--height", `${height}px`)
+      menuBackdrop.style.opacity = "1"
+      menuBackdrop.style.visibility = "visible"
+    })
+    item.addEventListener("mouseleave", () => {
+      menuBackdrop.style.opacity = "0"
+      menuBackdrop.style.visibility = "hidden"
+    })
+  })
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+	body{
+		font-family: 'Montserrat', sans-serif;
+		color: #333333;
+	}
+	.noise{
+		position: fixed;
+		height: 100vh;
+		z-index: 1000;
+		width: 100%;
+		opacity: 0.05;
+		pointer-events: none;
+		background-image: url('/noise.gif');
+	}
+  #head{
+    filter: grayscale(100%);
+  }
+</style>
+

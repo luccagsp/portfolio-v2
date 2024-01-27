@@ -1,0 +1,22 @@
+---
+interface Props {
+  next: String;
+}
+const {next} = Astro.props
+---
+<header class="flex flex-col justify-between items-center fixed w-screen z-[60]">
+  <div id="gridHeader" class="flex justify-between w-full  px-10 py-3 ">
+    <a href="/"id="home" class="hover:scale-110 transition z-50">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="fill-[#333] hover:fill-[#111]" style="transform: ;msFilter:;"><path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z"></path></svg>
+    </a>
+    <a href=`${next}` id="arrow" class="hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" class="fill-[#333] hover:fill-[#111]" style="transform: ;msFilter:;"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path></svg>
+    </a>
+  </div>
+</header>
+
+<style>
+  header{
+    backdrop-filter: blur(12px);
+  }
+</style>

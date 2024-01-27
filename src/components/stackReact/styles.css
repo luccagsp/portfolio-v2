@@ -1,0 +1,29 @@
+li::before{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 2px;
+  height: 0%;
+  left: 0px;
+  top: 0px;
+  background-color: #3A3A3A;
+  transition: all 0.2s ease-in;
+  
+
+}
+li::after{
+  content: "";
+  display: block;
+  position: absolute;
+  width: 2px;
+  height: 0%;
+  right: 0px;
+  bottom: 0px;
+  background-color: #3A3A3A;
+  transition: all 0.2s ease-in;
+}
+
+li:hover::before, li:hover::after{
+  height: 100%;
+  transition-delay: 0.3s;
+}

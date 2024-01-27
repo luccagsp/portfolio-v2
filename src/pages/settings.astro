@@ -1,0 +1,32 @@
+---
+import image from '/fronts/image.svg'
+import Header from '../components/Header.astro';
+import BookCard from '../components/BookCard.astro'
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>About</title>
+	</head>
+	<body >
+		<div class="noise">
+		</div>
+    <Header/>
+    <div class=" h-full bg-none ">
+      <main class="container mx-auto flex justify-start h-full items-center flex-col bg-none">
+        <BookCard />
+        <div class="cont w-full mt-20">
+          <div class="w-full h-10 bg-black">
+            asds
+          </div>
+        </main>
+      </div>
+	</body>
+</html>

@@ -1,0 +1,136 @@
+---
+import image from '/fronts/image.svg'
+import SocialCard from '../components/SocialCard.astro'
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import Cross from '../components/Cross.astro';
+const positionVariants = {
+  "leftTop": "left-[-11px] top-[-11px]",
+  "rightBottom": "right-[-11px] bottom-[-11px]",
+  "leftBottom": "left-[-11px] bottom-[-11px]"
+}
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>About</title>
+	</head>
+	<body >
+		<div class="noise">
+		</div>
+    <Header next="/stack"/>
+    <div class=" h-full bg-none border-b-[2px]">
+      <main class="relative border-x-[2px] container mx-auto flex justify-start h-full items-center flex-col bg-none">
+        <div class="h-[153px] mt-20">
+          <img id="head" src="/fronts/social.svg" class="max-w-24 z-20" alt="">
+        </div>
+        <Cross variant={`${positionVariants["rightBottom"]}`} />
+        <Cross variant={`${positionVariants["leftBottom"]}`} />
+
+        <div class="cont w-full flex flex-col justify-center items-center">
+          <div class="titleContainer w-full my-28 border-y-[2px] flex justify-center items-center">
+            <h1 class="text-6xl font-[Aclonica] text-[#333] border-x-[2px] text-center inline-block relative p-2 px-5">
+              <Cross variant={`${positionVariants["leftTop"]}`} />
+              <Cross variant={`${positionVariants["rightBottom"]}`} />
+              Social networks
+            </h1>
+          </div>
+          <div class="bentoContainer grid grid-cols-2 gap-1 lg:grid-cols-3 mb-10">
+
+            <SocialCard height='40vmin' width='40vmin' text='Linkedin' color='#0077B5' link='https://www.linkedin.com/in/lucca-martina-97148a288/' rotate='3deg'/>
+            <div class="twoCards grid grid-cols-1 grid-rows-2 w-[40vmin] h-[40vmin] gap-1">
+              <SocialCard height='auto' width='auto' text='Discord' color='#7289da' link='#' rotate='0'/>
+              <SocialCard height='auto' width='auto' text='Steam' color='#1b2838' link='https://steamcommunity.com/profiles/76561198951435051/' rotate='0'/>
+            </div>
+            <SocialCard height='40vmin' width='40vmin' text='Github' color='#2f2f2f' link='https://github.com/luccagsp' rotate='-3deg'/>
+            <SocialCard height='40vmin' width='40vmin' text='Twitter' color='#2f2f2f' link='https://twitter.com/lccmartino' rotate='-3deg'/>
+            <SocialCard height='40vmin' width='40vmin' text='Mail' color='#7B1D1D' link='mailto:lccmartina@gmail.com' rotate='3deg'/>
+            <SocialCard height='40vmin' width='40vmin' text='Youtube' color='#F2A8A6' link='https://youtube.com/@lucag3131?si=JSiSGvGVkWnArTR5' rotate='3deg'/>
+          </div>
+        </div>
+      </main>
+    </div>
+		<Footer/>
+	</body>
+</html>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+	:root{
+		--proyects: #FF8B36;
+		--text: #
+	}
+	body{
+		font-family: 'Montserrat', sans-serif;
+		color: #333333;
+	}
+	.noise{
+		position: fixed;
+		height: 100vh;
+		z-index: 1000;
+		width: 100%;
+		opacity: 0.05;
+		pointer-events: none;
+		background-image: url('/noise.gif');
+	}
+  #head{
+    filter: grayscale(100%);
+  }
+  header{
+    backdrop-filter: blur(12px);
+  }
+</style>
+
+
+
+<style>
+  h3{
+    font-weight: 600;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+  }
+  #link{
+    font-weight: 600;
+    transition: all 0.5s;
+    position: relative;
+  }
+  #link::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0px;
+    background-color: #1E82DD;
+    transition: all 0.5s ease-in-out;
+  }
+  #link:hover{
+    color: #1E82DD;
+  }
+  #link:hover::before{
+    width: 100%;
+    
+  }
+  #text{
+    font-family: 'Montserrat', sans-serif;
+  }
+  .gifVideo{
+    filter: grayscale(100%);
+    position: relative;
+    transition: all 0.5s;
+    z-index: 0;
+  }
+  picture {
+    width: 50vmin;
+    height: 40vmin;
+  }
+</style>

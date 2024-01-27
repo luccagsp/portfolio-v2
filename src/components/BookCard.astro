@@ -1,0 +1,39 @@
+<img id="head" src="/fronts/image.svg" class=" hover:grayscale-[0%] grayscale-[100%] hover:shadow-xl h-[153px] mt-20 max-w-24 z-20" alt=""/>
+
+<style>
+
+</style>
+
+<script>
+  const el = document.getElementById("head")
+  const height = el.clientHeight
+  const width = el.clientWidth
+
+  el.addEventListener('mousemove', (evt) => {
+    const {layerX, layerY} = evt
+    
+    const yRotation =  (
+      (layerX - width / 2) / height
+    ) * 10
+    const xRotation =  (
+      (layerY - height / 2) /width
+    ) * 10
+
+    const string = `
+      perspective(400px)
+      scale(1.1)
+      rotateX(${xRotation}deg)
+      rotateY(${yRotation}deg)
+    `
+    console.log(string)
+    el.style.transform = string
+  })
+  el.addEventListener("mouseout", (evt) => {
+    el.style.transform = `
+      perspective(400px)
+      scale(1)
+      rotateX(0)
+      rotateY(0)
+    `
+  })
+</script>

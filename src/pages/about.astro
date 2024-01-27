@@ -1,0 +1,189 @@
+---
+import image from '/fronts/image.svg'
+import Header from '../components/Header.astro';
+import BookCard from '../components/BookCard.astro'
+import Footer from '../components/Footer.astro';
+import Cross from '../components/Cross.astro';
+
+const positionVariants = {
+  "leftTop": "left-[-11px] top-[-11px]",
+  "rightBottom": "right-[-11px] bottom-[-11px]",
+  "leftBottom": "left-[-11px] bottom-[-11px]"
+}
+
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>About</title>
+	</head>
+	<body >
+		<div class="noise">
+		</div>
+    <Header next="/social"/>
+    <div class="h-full bg-none border-b-[2px]">
+      <main class="container mx-auto flex justify-start h-full items-center flex-col bg-none border-x-[2px]">
+        <BookCard/>
+        <div class="divider"></div>
+        <div class="titleContainer w-full my-28 border-y-[2px] flex justify-center items-center">
+          <h1 class="text-6xl font-[Aclonica] text-[#333] border-x-[2px] text-center inline-block relative p-2 px-5">
+            <Cross variant={`${positionVariants["leftTop"]}`} />
+            <Cross variant={`${positionVariants["rightBottom"]}`} />
+            About
+          </h1>
+        </div>
+        <div class="cont w-full border-t-[2px] relative">
+          <Cross variant={`${positionVariants["leftTop"]}`} />
+          <Cross variant={`${positionVariants["rightBottom"]}`} />
+          <Cross variant={`${positionVariants["leftBottom"]}`} />
+          <section class="mt-20 my-5 flex h-[20rem] md:h-auto px-7 overflow-hidden justify-start  flex-col md:flex-row-reverse md:mx-32 xl:mx-60 bg-gray-50 md:bg-transparent">
+            
+            <div class="vid h-[40%] md:h-[20rem] md:ml-10">
+              <video src="/gifs/book.mp4" class="lg:w-[1000px] gifVideo w-[100%] h-[100%] object-cover" playsinline muted loop/>
+            </div>
+            
+            <div class="info lg:mr-14 h-full">
+              <h3 class="text-4xl mb-5 md:text-6xl ">Book lover.</h3>
+              <div class="h-full flex justify-center items-start md:[items-center]">
+                <p class="carddesc md:text-[1.32rem] w-full">I like to read self-improvement books, stories and philosophy. Currently reading: Sophie's World</p>
+              </div>
+
+            </div>
+          </section>
+          <section class="mb-10 my-5 flex h-[20rem] md:h-auto px-7 overflow-hidden justify-start  flex-col md:flex-row md:mx-32 xl:mx-60 bg-gray-50 md:bg-transparent">
+            
+            <div class="vid h-[40%] md:h-[20rem] md:mr-10 ">
+              <video src="/gifs/young.mp4" class="gifVideo lg:w-[1000px] w-[100%] h-[100%] object-cover" playsinline muted loop/>
+            </div>
+            
+            <div class="info lg:ml-14 h-full">
+              <h3 class="text-4xl mb-5 md:text-6xl ">Started young.</h3>
+              <div class="h-full flex justify-center items-start md:[items-center]">
+                <p class="carddesc md:text-[1.32rem] w-full">Started programming at 12, creating video games in Roblox, programming in Lua, designing and modeling them.
+                </p>
+              </div>
+
+            </div>
+          </section>
+          <section class="historyContainer grid grid-cols-2 md:px-32 xl:px-60 my-20 border-t-[2px] pt-8">
+            <article class="info lg:ml-14 h-full">
+              <h3 class="cursor-default text-4xl mb-5 md:text-6xl flex items-center all hover:scale-105 transition relative"><span class=""><img class="h-[1.4em] w-[1.4em] grayscale-[100%]" src="/icons/python.svg" alt="python-icon"></span>Python</h3>
+              <p class="carddesc md:text-[1.4rem] w-full px-5">I’ve programmed in Python for 3 years.
+                Developed some projects using Tkinter and OpenCV.
+              </p>
+            </article>
+            <article class="info lg:ml-14 h-full">
+              <h3 class="cursor-default text-4xl mb-5 md:text-6xl flex items-center all hover:scale-105 transition relative"><span class=""><img class="h-[1.5em] w-[1.5em] grayscale-[100%]" src="/icons/html.svg" alt="python-icon"></span>Web</h3>
+              <p class="carddesc md:text-[1.4rem] w-full px-5">Started in front-end 7 months ago and taking steps to become fullstack developer</p>
+            </article>
+          </section>
+        </main>
+    </div>
+    <Footer/>
+	</body>
+</html>
+
+<style is:global>
+	@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+  h3:hover img{
+    filter: grayscale(0%);
+  }
+	body{
+		font-family: 'Montserrat', sans-serif;
+		color: #333333;
+	}
+	.noise{
+		position: fixed;
+		height: 100vh;
+		z-index: 1000;
+		width: 100%;
+		opacity: 0.05;
+		pointer-events: none;
+		background-image: url('/noise.gif');
+	}
+  header{
+    backdrop-filter: blur(12px);
+  }
+
+  main{
+    
+  }
+</style>
+
+
+
+<style>
+  .carddesc{
+    text-wrap: balance;
+  }
+  h3{
+    font-weight: 600;
+    line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+  }
+  #link{
+    font-weight: 600;
+    transition: all 0.5s;
+    position: relative;
+  }
+  #link::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    bottom: 0px;
+    background-color: #1E82DD;
+    transition: all 0.5s ease-in-out;
+  }
+  #link:hover{
+    color: #1E82DD;
+  }
+  #link:hover::before{
+    width: 100%;
+    
+  }
+  #text{
+    font-family: 'Montserrat', sans-serif;
+  }
+  .gifVideo{
+    filter: grayscale(100%);
+    position: relative;
+    transition: all 0.5s;
+    z-index: 0;
+  }
+  picture {
+    width: 50vmin;
+    height: 40vmin;
+  }
+</style>
+
+<script>
+  // Obtén la referencia al elemento de imagen (GIF)
+  var gifs = document.querySelectorAll('.gifVideo');
+
+  // Obtén la referencia al botón de pausa
+
+  // Agrega un controlador de eventos al botón de pausa
+  gifs.forEach(function(gif) {
+    gif.addEventListener('mouseover', function() {
+      gif.play()
+      gif.style.transform = "scale(1.1)";
+      gif.style.filter = "grayscale(0%)";
+    });
+    gif.addEventListener('mouseout', function() {
+      gif.pause()
+      gif.style.transform = "scale(1)";
+      gif.style.filter = "grayscale(100%)";
+    });
+  })
+</script>

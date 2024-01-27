@@ -1,0 +1,50 @@
+---
+interface Props {
+	width: string;
+	height: string;
+  text: string;
+  color: string;
+  rotate: string;
+  link: string;
+}
+
+const { width, height, text, color, rotate, link } = Astro.props;
+const imgText = text.toLowerCase()
+console.log(imgText)
+---
+<a href={link} style=`--bgcol: ${color}; --rotation: ${rotate};` class=` card transition w-[${width}] h-[${height}] bg-[#E7E7E7] relative overflow-hidden block rounded-3xl border-[4px] border-[#e7e7e7e7]` >
+  <div class="bigLogo">
+    <img src=`/social/${imgText}.svg` class="transition-[200ms] ease-in w-full h-full scale-90 absolute grayscale-[80%]" alt="">
+  </div>
+
+  <div class="smallLogo">
+    <img src="/social/link.svg" class="absolute right-0 m-5 w-[25px] z-10 h-[25px] hidden" alt="">
+  </div>
+  <div class="content flex justify-center items-center h-full">
+    <h3 class="hidden font-[Aclonica] font-semibold text-4xl z-10">{text}</h3>
+  </div>
+
+
+</a>
+
+
+<style>
+  .card:hover{
+    color: #fff;
+    background: var(--bgcol);
+    border-color: var(--bgcol);
+  }
+  .card:hover h3{
+    transform: scale(1.2);
+    text-shadow: 1px 1px 2px #111;
+    display: block;
+  }
+  .card:hover .smallLogo IMG{
+    display: block;
+  }
+
+  .card:hover .bigLogo img{
+    transform: scale(1.2)  rotate(var(--rotation));
+    filter: brightness(60%)
+  }
+</style>

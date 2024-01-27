@@ -1,0 +1,108 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Book from '../components/Book.astro';
+import {BookReact} from '../components/bookReact/Book'
+import Cross from '../components/Cross.astro';
+
+import proyectsImg from '../assets/fronts/projects.svg'
+
+const positionVariants = {
+  "leftTop": "left-[-10px] top-[-10px]",
+  "rightBottom": "right-[-10px] bottom-[-10px]",
+  "leftBottom": "left-[-10px] bottom-[-10px]"
+}
+
+---
+
+<Layout title="Lucca dev">
+	<main class="container mx-auto flex justify-center h-full items-center flex-col bg-none relative">
+    <div class="sm:mr-40 2xl:mr-72 title mb-40 2xl:mb-52 skew-y-[-30deg] relative w-screen flex justify-center items-center flex-row border-y-[2px] " >
+      <div class="presentation relative h-full p-3  flex justify-center items-center flex-col w-80">
+        <Cross variant={`${positionVariants["leftTop"]}`} />
+        <Cross variant={`${positionVariants["rightBottom"]}`}/>
+        <div class="-z-10 topper w-[101%] h-screen  absolute border-[2px]">
+          <Cross variant={`${positionVariants["rightBottom"]}`}/>
+          <Cross variant={`${positionVariants["leftBottom"]}`}/>
+        </div>
+        <div class="caca absolute h-screen w-[120vw] border-[2px]"></div>
+        <h1  id="name" class=" z-10 text-6xl sm:text-8xl text[#1D1D1F]">Lucca</h1>
+        <h3 class="z-10 text-2xl sm:text-[2.5rem]">Front-end dev</h3>
+      </div>
+    </div>
+    <div class="library">
+      <ul class="books ml-32 sm:ml-40">
+        <BookReact client:load index='6' title='proyects' img='/fronts/image.svg' col="#FF8B36" ></BookReact>
+        <BookReact client:load index='5' title='about' img='/fronts/about.svg' col="#506D6B" ></BookReact>
+        <BookReact client:load index='4' title='social' img='/fronts/social.svg' col="#FFCA00"></BookReact>
+        <BookReact client:load index='3' title='stack' img='/fronts/stack.svg' col="#D9D9D9"></BookReact>
+      </ul>
+    </div>
+  </main>
+</Layout>
+<script>
+  const settings = document.getElementById("settings")
+  const close = document.getElementById("close")
+  const settingscontainer = document.getElementById("settingscontainer")
+  const settingsPopup = document.getElementById("settingsPopup")
+  settings.addEventListener('click', () => {
+    settingscontainer.style.display = "flex"
+    
+    setTimeout(() => {
+      settingsPopup.classList.remove("passive")
+      settingsPopup.classList.add("active")
+    }, 1);
+  })
+  close.addEventListener('click', () => {
+
+    settingscontainer.style.display = "none"
+    settingsPopup.classList.remove("active")
+    settingsPopup.classList.add("passive")
+  })
+</script>
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+</style>
+
+<style>
+  .active{
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+  .passive{
+    opacity: 0;
+    transform: translateY(50px) scale(0);
+  }
+  .topper::after{
+    content: '';
+    position: absolute;
+    bottom: -1000px;
+    left: 1000px;
+    width: 100%;
+    height: 1000px;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    border-right: 2px solid #e5e7eb;
+    border-left: 2px solid #e5e7eb;
+  }
+  h1{
+    font-weight: 600;
+  }
+
+
+  ul{
+    position: relative;
+    transform: skewY(-30deg);
+    display: flex;
+    flex-direction: row;
+    transition: .5s;
+  }
+</style>
+
+
+
+
+
+
+
+
+
