@@ -4,6 +4,7 @@ import SocialCard from '../components/SocialCard.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Cross from '../components/Cross.astro';
+import BookCard from '../components/BookCard.astro';
 const positionVariants = {
   "leftTop": "left-[-11px] top-[-11px]",
   "rightBottom": "right-[-11px] bottom-[-11px]",
@@ -18,7 +19,7 @@ const positionVariants = {
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>About</title>
 	</head>
@@ -28,9 +29,7 @@ const positionVariants = {
     <Header next="/stack"/>
     <div class=" h-full bg-none border-b-[2px]">
       <main class="relative border-x-[2px] container mx-auto flex justify-start h-full items-center flex-col bg-none">
-        <div class="h-[153px] mt-20">
-          <img id="head" src="/fronts/social.svg" class="max-w-24 z-20" alt="">
-        </div>
+        <BookCard src={"/fronts/social.svg"}/>
         <Cross variant={`${positionVariants["rightBottom"]}`} />
         <Cross variant={`${positionVariants["leftBottom"]}`} />
 
@@ -61,13 +60,9 @@ const positionVariants = {
 	</body>
 </html>
 
-<style is:global>
+<style>
 	@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-	:root{
-		--proyects: #FF8B36;
-		--text: #
-	}
 	body{
 		font-family: 'Montserrat', sans-serif;
 		color: #333333;
@@ -81,17 +76,11 @@ const positionVariants = {
 		pointer-events: none;
 		background-image: url('/noise.gif');
 	}
-  #head{
-    filter: grayscale(100%);
-  }
   header{
     backdrop-filter: blur(12px);
   }
-</style>
 
 
-
-<style>
   h3{
     font-weight: 600;
     line-height: 1;

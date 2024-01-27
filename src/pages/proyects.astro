@@ -9,6 +9,7 @@ import VideoCard from "../components/VideoCard.astro"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import Cross from '../components/Cross.astro';
+import BookCard from "../components/BookCard.astro"
 
 const positionVariants = {
   "leftTop": "left-[-11px] top-[-11px]",
@@ -24,7 +25,7 @@ const positionVariants = {
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Proyects</title>
 	</head>
@@ -34,9 +35,9 @@ const positionVariants = {
     <Header next="/about"/>
     <div class="h-full bg-none border-b-[2px]">
       <main class="border-x-[2px] container mx-auto flex justify-start h-full items-center flex-col bg-none">
-        <div class="h-[153px] mt-20">
-          <img id="head" src="/fronts/image.svg" class="max-w-24 z-20" alt="">
-        </div>
+
+        <BookCard src={"/fronts/image.svg"} />
+
         <div class="titleContainer w-full my-28 border-y-[2px] flex justify-center items-center">
 
 					<h1 class="text-5xl sm:text-6xl font-[Aclonica] text-[#333] border-x-[2px] text-center inline-block relative p-2 px-5">

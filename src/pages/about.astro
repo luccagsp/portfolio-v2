@@ -19,9 +19,9 @@ const positionVariants = {
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>About</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 	</head>
 	<body >
 		<div class="noise">
@@ -29,7 +29,7 @@ const positionVariants = {
     <Header next="/social"/>
     <div class="h-full bg-none border-b-[2px]">
       <main class="container mx-auto flex justify-start h-full items-center flex-col bg-none border-x-[2px]">
-        <BookCard/>
+        <BookCard src={"/fronts/about.svg"}/>
         <div class="divider"></div>
         <div class="titleContainer w-full my-28 border-y-[2px] flex justify-center items-center">
           <h1 class="text-5xl sm:text-6xl font-[Aclonica] text-[#333] border-x-[2px] text-center inline-block relative p-2 px-5">
