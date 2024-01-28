@@ -75,6 +75,7 @@ p{
   content: '';
   background: none;
   background-size: cover;
+  background-color: var(--col);
   background-image: var(--urlimg);
   color: rgb(95, 95, 95);
 }
