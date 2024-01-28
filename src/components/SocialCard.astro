@@ -12,7 +12,7 @@ const { width, height, text, color, rotate, link } = Astro.props;
 const imgText = text.toLowerCase()
 console.log(imgText)
 ---
-<a href={link} style=`--bgcol: ${color}; --rotation: ${rotate};` class=` card transition w-[${width}] h-[${height}] bg-[#E7E7E7] relative overflow-hidden block rounded-3xl border-[4px] border-[#e7e7e7e7]` >
+<a href={link} target="_blank" style=`--bgcol: ${color}; --rotation: ${rotate};` class=` card transition w-[${width}] h-[${height}] bg-[#E7E7E7] relative overflow-hidden block rounded-3xl border-[4px] border-[#e7e7e7e7]` >
   <div class="bigLogo">
     <img src=`/social/${imgText}.svg` class="transition-[200ms] ease-in w-full h-full scale-90 absolute grayscale-[80%]" alt="">
   </div>
