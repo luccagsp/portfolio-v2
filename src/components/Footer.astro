@@ -3,27 +3,30 @@
 ---
 
 <footer class="flex justify-center items-center mt-52 h-36 bg-gray-100 gap-5 sm:gap-10">
-  <div class="cardFooter flex justify-center items-center flex-col">
-    <a target="_blank" href="https://astro.build/"><img id="footerImg" src="/icons/astro.svg" alt="astro-icon" class="w-8 h-8 sm:w-10 sm:h-10 mb-3"></a>
+  <a target="_blank" href="https://astro.build/" class="cardFooter flex justify-center items-center flex-col">
+    <img id="footerImg" src="/icons/astro.svg" alt="astro-icon" class="w-8 h-8 sm:w-10 sm:h-10 mb-3">
     
     <p class="font-semibold text-lg max-w-20 text-center leading-5">Made in <strong>Astro</strong></p>
-  </div>
-  <div class="cardFooter flex justify-center items-center flex-col">
-    <a target="_blank" href="https://tailwindcss.com/"><img id="footerImg" src="/icons/tailwind.svg" alt="tailwind-icon" class="w-8 h-8 sm:w-10 sm:h-10 mb-3"></a>
+  </a>
+  <a target="_blank" href="https://tailwindcss.com/" class="cardFooter flex justify-center items-center flex-col">
+    <img id="footerImg" src="/icons/tailwind.svg" alt="tailwind-icon" class="w-8 h-8 sm:w-10 sm:h-10 mb-3">
     <span class="font-semibold text-lg max-w-20 text-center leading-5">Using <strong>Tailwind</strong></span>
-  </div>
-  <div class="cardFooter flex justify-center items-center flex-col">
-    <a target="_blank" href="https://vercel.com/"><img id="footerImg" src="/icons/vercel.svg" alt="vercel-icon" class="h-8 sm:h-10 p-1 mb-3"></a>
+  </a>
+  <a target="_blank" href="https://vercel.com/" class="cardFooter flex justify-center items-center flex-col">
+    <img id="footerImg" src="/icons/vercel.svg" alt="vercel-icon" class="h-8 sm:h-10 p-1 mb-3">
 
     <span class="font-semibold text-lg max-w-24 text-center leading-5">Hosted in <strong>Vercel</strong></span>
-  </div>
+  </a>
 </footer>
 
 <style>
   #footerImg{
     transition: all .2s ease;
   }
-  #footerImg:hover {
+  .cardFooter:hover #footerImg {
     transform: scale(1.1);
+  }
+  .cardFooter:hover {
+    
   }
 </style>
