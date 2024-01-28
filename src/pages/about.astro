@@ -49,7 +49,7 @@ const positionVariants = {
           <section class="mt-20 my-5 flex h-[20rem] md:h-auto px-7 overflow-hidden justify-start  flex-col md:flex-row-reverse md:mx-32 xl:mx-60 bg-gray-50 md:bg-transparent">
             
             <div class="vid h-[40%] md:h-[20rem] md:ml-10">
-              <video src="/gifs/book.mp4" class="lg:w-[1000px] gifVideo w-[100%] h-[100%] object-cover" playsinline muted loop/>
+              <video src="/gifs/book.mp4" class="lg:w-[1000px] gifVideo w-[100%] h-[100%] object-cover" playsinline muted loop />
             </div>
             
             <div class="info lg:mr-14 h-full">
@@ -92,6 +92,11 @@ const positionVariants = {
     <Footer/>
 	</body>
 </html>
+
+<script>
+  const vids = document.querySelectorAll("video")
+  vids.disableRemotePlayback = false;
+</script>
 
 <style is:global>
 	@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
