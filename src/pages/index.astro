@@ -16,7 +16,7 @@ import about from '/fronts/about.svg'
 ---
 
 <Layout title="Lucca dev">
-	<main class="container mx-auto flex justify-center h-full items-center flex-col bg-none relative">
+	<main class="overflow-hidden container mx-auto flex justify-center h-full items-center flex-col bg-none relative">
     <div class="sm:mr-40 2xl:mr-72 title mb-40 2xl:mb-52 skew-y-[-30deg] relative w-screen flex justify-center items-center flex-row border-y-[2px] " >
       <div class="presentation relative h-full p-3  flex justify-center items-center flex-col w-80">
         <Cross variant={`${positionVariants["leftTop"]}`} />
@@ -25,7 +25,7 @@ import about from '/fronts/about.svg'
           <Cross variant={`${positionVariants["rightBottom"]}`}/>
           <Cross variant={`${positionVariants["leftBottom"]}`}/>
         </div>
-        <div class="absolute h-screen w-[120vw] border-[2px]"></div>
+        <div class="absolute h-screen w-[120dvw] border-[2px] overflow-hidden"></div>
         <h1  id="name" class=" z-10 text-6xl sm:text-8xl text[#1D1D1F]">Lucca</h1>
         <h3 class="z-10 text-2xl sm:text-[2.5rem]">Front-end dev</h3>
       </div>
@@ -78,7 +78,19 @@ import about from '/fronts/about.svg'
     font-weight: 600;
   }
 
-
+  .topper::after{
+    overflow: hidden;
+    content: '';
+    position: absolute;
+    bottom: -1000px;
+    left: 1000px;
+    width: 100%;
+    height: 1000px;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    border-right: 2px solid #e5e7eb;
+    border-left: 2px solid #e5e7eb;
+  }
   ul{
     position: relative;
     transform: skewY(-30deg);
