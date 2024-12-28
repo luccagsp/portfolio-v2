@@ -17,7 +17,7 @@ export function BookReact(props, index, img, title, col, long) {
   }
   if (props.title != "settings"){
     return(
-      <a id={`${props.title}`} href={`/${props.title}`} onMouseEnter={MouseEnter} onMouseLeave={MouseLeave} className="item  w-[50px] h-[190px]  sm:w-[40px] sm:h-[180px] 2xl:w-[50px] 2xl:h-[240px]" style={{"--long":props.long,"--i": props.index, "--urlimg": "url("+props.img+")", "--col": props.col}}>
+      <a id={`${props.title}`} href={`/${props.title}`} onMouseEnter={MouseEnter} onMouseLeave={MouseLeave} className="item  w-[50px] h-[190px]  sm:w-[40px] sm:h-[180px] 2xl:w-[50px] 2xl:h-[240px]" style={{"--long":props.long,"--i": props.index, "--urlimg": `url(${props.img})`, "--col": props.col}} loading="lazy">
         <p className="flex justify-between flex-col align h-full w-full items-center 2xl:text-2xl" ><span id="title">{endtext}</span><span id="sign"></span></p>
       </a>
     )

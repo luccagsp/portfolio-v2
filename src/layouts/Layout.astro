@@ -5,6 +5,13 @@ interface Props {
 
 const { title } = Astro.props;
 import Header from '../components/Header.astro';
+
+const svgImages = [
+	 '/assets/fronts/projects.svg',
+	 '/assets/fronts/about.svg',
+	 '/assets/fronts/social.svg',
+	 '/assets/fronts/stack.svg'
+];
 ---
 
 <!doctype html>
@@ -19,6 +26,9 @@ import Header from '../components/Header.astro';
 		<meta property="og:title" content="Lucca dev">
     <meta property="og:description" content="Energic and engaged Argentinian programmer. Focused on polishing details.">
     <meta name="author" content="Lucca">
+		{svgImages.map(svg => (
+			<link rel="preload" href={svg} as="image" type="image/svg+xml" />
+		))}
 	</head>
 	<body class="relative">
 		<div class="noise">
