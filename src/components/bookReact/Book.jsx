@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles.css"
 
 export function BookReact(props, index, img, title, col, long) {
@@ -8,6 +8,11 @@ export function BookReact(props, index, img, title, col, long) {
   }
   const endtext = capitalizeFirstLetter(props.title)
   console.log(endtext)
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = props.img;
+  }, [props.img]);
 
   function MouseEnter() {
     document.documentElement.setAttribute("style", `--color:${props.col}`);
