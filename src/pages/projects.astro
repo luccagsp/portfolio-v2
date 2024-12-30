@@ -51,10 +51,10 @@ const positionVariants = {
           <Cross variant={`${positionVariants["rightBottom"]}`} />
           <Cross variant={`${positionVariants["leftBottom"]}`} />
           <section class="proyects grid md:grid-cols-2 mx-5 mb-10 border-x-[2px] h-full gap-1">
-            <VideoCard href="https://tabla-periodica-af.vercel.app/" source="pactum.mp4" stack={["python", "mysql"]} p="Periodic table website developed for an institution." h3="Periodic table"/>
-            <VideoCard href="https://github.com/luccagsp/Pactum" source="periodic-table.mp4" stack={["astro", "javascript", "tailwind"]} p="Booking website developed during an internship at a software company." h3="Pactum - booking"/>
-            <VideoCard href="https://lccwater-calculator.vercel.app/" source="waterCalc.mp4" stack={["astro", "react", "javascript"]} p="Calculate your daily water consume" h3="Water calc"/>
-            <VideoCard href="https://github.com/luccagsp/Library-management-system.git" source="library.mp4" stack={["python", "mysql"]} p="Library simulation system with full CRUD and login system." h3="Library management system"/>
+            <VideoCard href="https://tabla-periodica-af.vercel.app/" source="pactum" stack={["python", "mysql"]} p="Periodic table website developed for an institution." h3="Periodic table"/>
+            <VideoCard href="https://github.com/luccagsp/Pactum" source="periodic-table" stack={["astro", "javascript", "tailwind"]} p="Booking website developed during an internship at a software company." h3="Pactum - booking"/>
+            <VideoCard href="https://lccwater-calculator.vercel.app/" source="waterCalc" stack={["astro", "react", "javascript"]} p="Calculate your daily water consume" h3="Water calc"/>
+            <VideoCard href="https://github.com/luccagsp/Library-management-system.git" source="library" stack={["python", "mysql"]} p="Library simulation system with full CRUD and login system." h3="Library management system"/>
           </section>
         </div>
       </main>
@@ -89,4 +89,65 @@ const positionVariants = {
     backdrop-filter: blur(12px);
   }
 </style>
+<style is:global>
+  .blur-video video {
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
 
+  }
+
+  .blur-video.loaded video {
+  opacity: 1;
+}
+
+  .blurred-img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    animation: pulse 2.5s infinite;
+    background-color: white;
+  }
+  @keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.blur-video.loaded::before {
+  animation: none;
+  content: none;
+}
+  #over{
+    backdrop-filter: blur(3px);
+  }
+
+  #article:hover .stack, #article:hover .info, #article:hover #over{
+    transform: translateY(0px) scale(1) ;
+    opacity: 1;
+  }
+  #article:hover video{
+    filter: grayscale(0);
+  }
+</style>
+<script>
+  const blurredImageDivs = document.querySelectorAll(".blur-video")
+  
+  blurredImageDivs.forEach(div => {
+    const video = div.querySelector("video")
+    function loaded() {
+      div.classList.add("loaded")
+    }
+
+    if (video.readyState >= 2) {
+      loaded()
+    } else {
+      video.addEventListener("loadeddata", loaded)
+    }
+  })
+</script>

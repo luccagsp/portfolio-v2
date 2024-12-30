@@ -48,8 +48,8 @@ const positionVariants = {
           <Cross variant={`${positionVariants["leftBottom"]}`} />
           <section class="mt-20 my-5 flex h-[20rem] md:h-auto px-7 overflow-hidden justify-start  flex-col md:flex-row-reverse md:mx-32 xl:mx-60 bg-gray-50 md:bg-transparent">
             
-            <div class="vid h-[40%] md:h-[20rem] md:ml-10">
-              <video src="/gifs/book.mp4" class="lg:w-[1000px] gifVideo w-[100%] h-[100%] object-cover" playsinline muted loop />
+            <div class="blur-video vid h-[40%] md:h-[20rem] md:ml-10" style="background-image: url('/gifs/book_thumb.jpg');">
+              <video src="/gifs/book.mp4"  class="lg:w-[1000px] gifVideo w-[100%] h-[100%] object-cover" playsinline muted loop />
             </div>
             
             <div class="info lg:mr-14 h-full">
@@ -62,7 +62,7 @@ const positionVariants = {
           </section>
           <section class="mb-10 my-5 flex h-[20rem] md:h-auto px-7 overflow-hidden justify-start  flex-col md:flex-row md:mx-32 xl:mx-60 bg-gray-50 md:bg-transparent">
             
-            <div class="vid h-[40%] md:h-[20rem] md:mr-10 ">
+            <div class="blur-video vid h-[40%] md:h-[20rem] md:mr-10" style="background-image: url('/gifs/young_thumb.jpg');">
               <video src="/gifs/young.mp4" class="gifVideo lg:w-[1000px] w-[100%] h-[100%] object-cover" playsinline muted loop/>
             </div>
             
@@ -190,5 +190,74 @@ const positionVariants = {
       gif.style.transform = "scale(1)";
       gif.style.filter = "grayscale(100%)";
     });
+  })
+</script>
+
+<style is:global>
+.blur-video {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+  .blur-video video {
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+
+  }
+
+  .blur-video.loaded video {
+  opacity: 1;
+}
+
+  .blurred-img::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    animation: pulse 2.5s infinite;
+    background-color: white;
+  }
+  @keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.blur-video.loaded::before {
+  animation: none;
+  content: none;
+}
+  #over{
+    backdrop-filter: blur(3px);
+  }
+
+  #article:hover .stack, #article:hover .info, #article:hover #over{
+    transform: translateY(0px) scale(1) ;
+    opacity: 1;
+  }
+  #article:hover video{
+    filter: grayscale(0);
+  }
+</style>
+<script>
+  const blurredImageDivs = document.querySelectorAll(".blur-video")
+  
+  blurredImageDivs.forEach(div => {
+    const video = div.querySelector("video")
+    function loaded() {
+      div.classList.add("loaded")
+    }
+
+    if (video.readyState >= 2) {
+      loaded()
+    } else {
+      video.addEventListener("loadeddata", loaded)
+    }
   })
 </script>
