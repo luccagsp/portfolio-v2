@@ -3,7 +3,7 @@ import os
 
 def generate_low_quality_thumbnails():
     # Directorio donde están los videos
-    video_dir = 'C://Users//'
+    video_dir = 'C:\\Users\\...'
     
     # Asegurarse que existe el directorio
     if not os.path.exists(video_dir):
